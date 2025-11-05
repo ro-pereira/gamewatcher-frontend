@@ -1,10 +1,13 @@
+import { Container, Typography } from "@mui/material";
 import "./Home.css";
 
 function Home() {
   return (
-    <div className="home">
-      <h1>GAME WATCH</h1>
-    </div>
+    <Container>
+      <Typography variant="h1" color="primary.contrastText">
+          Futebol 2025
+      </Typography>
+    </Container>
   );
 }
 
