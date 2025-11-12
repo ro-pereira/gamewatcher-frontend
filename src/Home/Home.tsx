@@ -1,15 +1,26 @@
-import { Container, Typography } from "@mui/material";
-import "./Home.css";
+import { Container } from "@mui/material";
+import Hero from "../components/Hero";
 
 function Home() {
   return (
-    <Container>
-      <Typography variant="h1" color="primary.contrastText">
-          Futebol 2025
-      </Typography>
+  <Container sx={{
+        display: 'flex',
+        flexDirection: 'column', 
+        minHeight: "100vh",
+        alignItems: "center",
+        width: "100vw",
+        // border: "1px solid red",
+        position: "relative"
+      }}>
+        <Hero/>
+  
     </Container>
   );
 }
-
+      // xs: 0,
+      // sm: 600,
+      // md: 900,
+      // lg: 1200,
+      // xl: 1536,
 export default Home;
 
