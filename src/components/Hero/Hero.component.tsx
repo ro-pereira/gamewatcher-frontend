@@ -9,7 +9,7 @@ import {
   titleContainerSx,
 } from "./hero.style";
 
-const Hero = () => {
+export const Hero = () => {
   return (
     <Grid
       container
@@ -57,4 +57,3 @@ const Hero = () => {
     </Grid>
   );
 };
-export default Hero;
