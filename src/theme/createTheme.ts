@@ -53,6 +53,7 @@ export const baseTheme: ThemeOptions = {
             color: "primary.contrastText",
             border: "2px solid rgba(255, 255, 255)",
             transition: "all 0.3s ease",
+            boxShadow: "5px 5px 8px 4px",
           },
           "& .MuiInputBase-root.Mui-focused": {
             borderColor: "rgba(255, 255, 255)",
