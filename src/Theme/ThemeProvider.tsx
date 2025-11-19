@@ -1,3 +1,4 @@
+"use client";
 import CssBaseline from "@mui/material/CssBaseline";
 import type { ThemeProviderProps as MuiThemeProviderProps } from "@mui/material/styles";
 import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles";

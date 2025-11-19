@@ -1,9 +1,8 @@
-
+import ThemeProvider from "@/src/Theme/ThemeProvider";
 import type { Metadata } from "next";
-import ThemeRegistry from "./ThemeRegistry";
 
 export const metadata: Metadata = {
-  title: "Game watcher"
+  title: "Game watcher",
 };
 
 export default function RootLayout({
@@ -14,9 +13,9 @@ export default function RootLayout({
   return (
     <html lang="pt-en">
       <body>
-        <ThemeRegistry>
+        <ThemeProvider>
           {children}
-        </ThemeRegistry>
+        </ThemeProvider>
       </body>
     </html>
   );
