@@ -1,3 +1,4 @@
+import { inter, monomaniac } from "@/src/Theme/core/typography"; 
 import ThemeProvider from "@/src/Theme/ThemeProvider";
 import type { Metadata } from "next";
 
@@ -11,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-en">
+    <html lang="pt-en" className={`${inter.className} ${monomaniac.className}`}>
       <body>
         <ThemeProvider>
           {children}

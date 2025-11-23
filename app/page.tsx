@@ -1,23 +1,21 @@
-import { Container, Typography } from "@mui/material";
+import { Hero } from "@/src/components/Hero";
+import { flexColumnAlignItemsCenter } from "@/src/Theme/util/layout.flex";
+import { Container } from "@mui/material";
 
 const Home = () => {
   return (
     <Container
       sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
+        ...flexColumnAlignItemsCenter,
         minHeight: "100vh",
         width: "100vw",
         position: "relative",
       }}
     >
-      <Typography variant="h1" align="center" color="secondary.contrastText">
-        Futebol 2025
-      </Typography>
+      <Hero />
     </Container>
   );
 };
- 
+
 export default Home;
 

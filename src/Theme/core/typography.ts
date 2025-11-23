@@ -1,4 +1,16 @@
 import { TypographyVariantsOptions } from "@mui/material/styles";
+import { Inter, Monomaniac_One } from "next/font/google";
+
+export const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+export const monomaniac = Monomaniac_One({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  weight: "400"
+});
 
 export const typography: TypographyVariantsOptions = {
   fontFamily: ['"Inter"', '"Monomaniac One"', "sans-serif"].join(","),
