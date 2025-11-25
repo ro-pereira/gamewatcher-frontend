@@ -45,10 +45,10 @@ export const Hero = () => {
           <Typography variant="body2" color="primary.contrastText">
             Onde assistir? Pesquise aqui!
           </Typography>
-          <TextField />
+          <TextField label="Pesquise pelo time, canal ou campeonato..." />
         </Box>
 
-        <Box>
+        <Box sx={{zIndex: 99}}>
           <Image
             src="/arrow-down.png"
             height={50}

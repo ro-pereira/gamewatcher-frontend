@@ -1,4 +1,5 @@
 import { Hero } from "@/src/components/Hero";
+import { Section } from "@/src/components/Section";
 import { flexColumnAlignItemsCenter } from "@/src/Theme/util/layout.flex";
 import { Container } from "@mui/material";
 
@@ -13,6 +14,7 @@ const Home = () => {
       }}
     >
       <Hero />
+      <Section />
     </Container>
   );
 };
