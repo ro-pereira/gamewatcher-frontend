@@ -1,7 +1,6 @@
 import { PaletteOptions } from "@mui/material/styles";
 
 export const palette: PaletteOptions = {
-  mode: "light",
   primary: {
     main: "#E1AA12",
     contrastText: "#FFF7F7",

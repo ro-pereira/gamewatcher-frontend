@@ -1,7 +1,14 @@
-import { Grid } from "@mui/material"
+import { Grid } from "@mui/material";
+import { ChampionshipsTable } from "../ChampionshipsTable/ChampionshipsTable.component";
+
+const sectionStyle = {
+  padding: "20rem",
+};
 
 export const Section = () => {
-    return (
-        <Grid>Section</Grid>
-    )
-}
+  return (
+    <Grid sx={sectionStyle}>
+      <ChampionshipsTable />
+    </Grid>
+  );
+};

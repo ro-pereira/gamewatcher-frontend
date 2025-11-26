@@ -54,6 +54,8 @@ export const styleComponentGlobal: Components<Theme> = {
         minHeight: "500px",
         maxHeight: "1200px",
         width: "100vw",
+        display: "flex",
+        flexDirection: "column",
         alignItems: "center",
       },
     },
