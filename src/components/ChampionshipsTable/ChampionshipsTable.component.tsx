@@ -1,14 +1,13 @@
 import {
-  Box,
   Paper,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
-  TableRow,
-  Typography,
+  TableRow
 } from "@mui/material";
+import { ChampionshipTableRow } from "../ChampionshipTableRow";
 
 export const ChampionshipsTable = () => {
   return (
@@ -32,7 +31,7 @@ export const ChampionshipsTable = () => {
             }}
           >
             <TableCell align="center" sx={{ width: "33%" }}>
-              Placar
+              Partida
             </TableCell>
             <TableCell align="center" sx={{ width: "33%" }}>
               Dia
@@ -43,42 +42,7 @@ export const ChampionshipsTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow component="th" scope="row" sx={{ maxHeight: "14rem" }}>
-            <TableCell
-              align="center"
-              sx={{
-                height: "8rem",
-              }}
-            >
-              <Box
-                sx={{
-                  display: "flex",
-                  gap: 2,
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Box>
-                  <Typography>time name 1</Typography>
-                </Box>
-                <Typography>0 X 0</Typography>
-                <Box>
-                  <Typography>time name 2</Typography>
-                </Box>
-              </Box>
-            </TableCell>
-            <TableCell align="center" height="10rem">
-              <Box display="flex" flexDirection="column">
-                <Typography>Terça, dia 26/02</Typography>
-                <Typography>15H30</Typography>
-              </Box>
-            </TableCell>
-            <TableCell align="center" height="10rem">
-              <Box>
-                <Typography>netflix</Typography>
-              </Box>
-            </TableCell>
-          </TableRow>
+        <ChampionshipTableRow />
         </TableBody>
       </Table>
     </TableContainer>

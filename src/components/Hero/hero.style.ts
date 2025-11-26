@@ -16,8 +16,8 @@ export const heroContainerStyle = {
     bottom: 0,
     left: 0,
     width: "100%",
-    height: "10%",
-    background: "linear-gradient( #00000002, #000000ff)",
+    height: "15%",
+    background: "linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0))",
   },
 };
 
@@ -45,7 +45,7 @@ export const titleContainerSx = {
   },
 
   ...flexRowCenter,
-  boxShadow: "5px 5px 8px 4px",
+  boxShadow: "5px 5px 8px 4px rgba(1, 2, 5, 1)",
   borderRadius: "2rem",
   bgcolor: "secondary.main",
 };
@@ -64,7 +64,7 @@ export const subtitleContainerSx = {
   ...flexRowCenter,
   padding: { xs: "2rem", lg: "4rem" },
   top: { xs: "-1rem", sm: "-2rem", md: "-2rem", lg: "-3rem" },
-  boxShadow: "5px 5px 8px 4px",
+  boxShadow: "5px 5px 8px 4px rgb(1, 2, 5)",
   borderRadius: "2rem",
   bgcolor: "primary.main",
 };

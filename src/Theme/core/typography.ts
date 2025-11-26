@@ -46,6 +46,6 @@ export const typography: TypographyVariantsOptions = {
   },
   subtitle1: {
     fontFamily: "Inter, sans-serif",
-    fontSize: "1.8rem",
+    fontSize: "1.4rem",
   },
 };

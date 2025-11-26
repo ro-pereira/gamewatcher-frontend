@@ -1,4 +1,4 @@
-import { Box, Grid, TextField, Typography } from "@mui/material";
+import { Box, Grid, OutlinedInput, Typography } from "@mui/material";
 import Image from "next/image";
 import {
   heroContainerStyle,
@@ -45,10 +45,10 @@ export const Hero = () => {
           <Typography variant="body2" color="primary.contrastText">
             Onde assistir? Pesquise aqui!
           </Typography>
-          <TextField label="Pesquise pelo time, canal ou campeonato..." />
+          <OutlinedInput placeholder="Pesquise pelo time, canal ou campeonato..." />
         </Box>
 
-        <Box sx={{zIndex: 99}}>
+        <Box sx={{ zIndex: 99 }}>
           <Image
             src="/arrow-down.png"
             height={50}
