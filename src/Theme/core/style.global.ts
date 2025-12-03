@@ -17,6 +17,7 @@ export const styleComponentGlobal: Components<Theme> = {
       },
       body: {
         overflowX: "hidden",
+        overScrollBehavior: "none"
       },
     },
   },

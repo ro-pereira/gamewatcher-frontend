@@ -5,20 +5,25 @@ import {
 } from "@/src/Theme/util/layout.flex";
 
 export const heroContainerStyle = {
-  backgroundImage: "url('/the-soccer-ball.jpg')",
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "cover",
-  backgroundPosition: "center",
+  // backgroundImage: "url('/the-soccer-ball.jpg')",
+  // backgroundRepeat: "no-repeat",
+  // backgroundSize: "cover",
+  // backgroundPosition: "center",
+    backgrond: "#00ff2a54",
+    // zIndex: 10
+  //  overflow: "visible",
 
-  "&::after": {
-    content: '""',
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    width: "100%",
-    height: "15%",
-    background: "linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0))",
-  },
+  // "&::after": {
+  //   content: '""',
+  //   position: "absolute",
+  //   bottom: 0,
+  //   left: 0,
+  //   width: "100%",
+  //   height: "15%",
+  //   background: "linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0))",
+  // },
+
+  
 };
 
 export const heroHeaderBoxSx = {
