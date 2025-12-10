@@ -3,11 +3,12 @@ import { ChampionshipsTable } from "../ChampionshipsTable/ChampionshipsTable.com
 
 const sectionStyle = {
   padding: "20rem",
+
 };
 
 export const Section = () => {
   return (
-    <Grid sx={sectionStyle}>
+    <Grid sx={sectionStyle} zIndex={10}>
       <ChampionshipsTable />
     </Grid>
   );

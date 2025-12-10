@@ -1,15 +1,15 @@
 "use client";
 
 import { Box, Grid, Typography } from "@mui/material";
-import Image from "next/image";
+// import Image from "next/image";
 import { useEffect } from "react";
 import {
-  heroContainerStyle,
   heroHeaderBoxSx,
   searchContainerSx,
   subtitleContainerSx,
   titleContainerSx,
 } from "./hero.style";
+import { ArrowDown } from "../ArrowIconAnimation";
 type HeroProps = {
   heroRef: React.RefObject<HTMLDivElement | null>;
 };
@@ -24,15 +24,16 @@ export const Hero = ({ heroRef }: HeroProps) => {
 
       gsap.fromTo(
         heroRef.current,
-        { height: "100vh" },
+        { y: 0 },
         {
-          // opacity: 0,
-          y: -100,
+          y: -350,
+          ease: "none",
           scrollTrigger: {
             trigger: heroRef.current,
             start: "top top",
-            end: "bottom top",
-            scrub: true,
+            end: "bottom top+=1000",
+            scrub: 3,
+            scroller: "#smooth-content", 
           },
         }
       );
@@ -44,24 +45,14 @@ export const Hero = ({ heroRef }: HeroProps) => {
   return (
     <Grid
       ref={heroRef}
-      container
-      flexDirection="column"
-      position="relative"
       sx={{
         minHeight: "80vh",
         paddingTop: "2rem",
-        zIndex: 9999,
-        position: "relative",
         top: 0,
-        pointerEvents: "auto",
+        pointerEvents: "none",
       }}
     >
-      <Grid
-        container
-        flexDirection="column"
-        position="relative"
-        sx={heroContainerStyle}
-      >
+      <Grid container flexDirection="column" position="relative">
         <Box sx={heroHeaderBoxSx}>
           <Box sx={titleContainerSx}>
             <Typography
@@ -86,14 +77,8 @@ export const Hero = ({ heroRef }: HeroProps) => {
         </Box>
 
         <Box sx={searchContainerSx}>
-          <Box sx={{ zIndex: 99 }}>
-            {/* SUMIR AO scrollar OU AO CLICAR PARA DIGITAR */}
-            <Image
-              src="/arrow-down.png"
-              height={50}
-              width={60}
-              alt="Arrow down"
-            />
+          <Box>
+            <ArrowDown heroRef={heroRef} />
           </Box>
         </Box>
       </Grid>

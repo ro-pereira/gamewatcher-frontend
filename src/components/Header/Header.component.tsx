@@ -10,12 +10,8 @@ export const headerStyle = {
   position: "fixed",
   top: 0,
   left: 0,
-  zIndex: 0,
-  height: "100vh",
   width: "100vw",
   display: "flex",
-  pointerEvents: "none",
-  // alignItems: "flex-start",
   justifyContent: "center",
 };
 
@@ -36,9 +32,10 @@ export const Header = ({ heroTriggerRef }: HeaderProps) => {
 
       gsap.fromTo(
         headerRef.current,
-        { height: "100vh" },
+         { height: "130vh", filter: "blur(2px)" },
         {
-          height: "250px", // altura mínima final
+          height: "30rem",
+          filter: "blur(0px)",
           ease: "none",
           scrollTrigger: {
             trigger: heroTriggerRef.current,
@@ -51,9 +48,9 @@ export const Header = ({ heroTriggerRef }: HeaderProps) => {
 
       gsap.fromTo(
         inputBoxRef.current,
-        { yPercent: 50 }, // começa na metade inferior do header
+        { top: "55%" },
         {
-          yPercent: 0, // termina centralizado no header final
+           top: "5%",
           ease: "none",
           scrollTrigger: {
             trigger: heroTriggerRef.current,
@@ -69,13 +66,29 @@ export const Header = ({ heroTriggerRef }: HeaderProps) => {
   }, [heroTriggerRef]);
 
   return (
-    <Box ref={headerRef} sx={headerStyle}>
-      <Box ref={inputBoxRef} sx={{ textAlign: "center" }}>
+    <>
+      <Box ref={headerRef} sx={headerStyle} />
+      <Box
+        ref={inputBoxRef}
+        sx={{
+          position: "fixed",
+          top: "55%",
+          pointerEvents: "auto",
+          zIndex: 9999,
+          width: "100vw",
+          display: "flex",
+          flexDirection: "column",
+          alignItems:"center"
+        }}
+      >
         <Typography variant="body2" color="primary.contrastText">
           Onde assistir? Pesquise aqui!
         </Typography>
-        <OutlinedInput placeholder="Pesquise pelo time, canal ou campeonato..." />
+        <OutlinedInput
+          sx={{ width: "40rem", pointerEvents: "auto" }}
+          placeholder="Pesquise pelo time, canal ou campeonato..."
+        />
       </Box>
-    </Box>
+    </>
   );
 };
