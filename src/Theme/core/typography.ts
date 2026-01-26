@@ -35,7 +35,7 @@ export const typography: TypographyVariantsOptions = {
   },
   body1: {
     fontFamily: "Inter, sans-serif",
-    fontSize: "2rem",
+    fontSize: "1.8rem",
     lineHeight: 1,
     letterSpacing: "-1%",
     "@media (max-width:1200px)": {

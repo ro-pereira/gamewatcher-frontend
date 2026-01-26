@@ -36,7 +36,7 @@ export const styleComponentGlobal: Components<Theme> = {
         backdropFilter: "blur(6px)",
         border: "2px solid rgba(255, 255, 255)",
         transition: "all 0.3s ease",
-        boxShadow: "5px 5px 8px 4px #010205",
+        boxShadow: "5px 5px 8px 4px rgb(1, 2, 5)",
         notchedOutline: {
           border: "none",
         },
