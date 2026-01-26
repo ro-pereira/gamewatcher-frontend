@@ -13,7 +13,6 @@ export const styleComponentGlobal: Components<Theme> = {
       },
       root: {
         width: "100vw",
-        margin: 0,
       },
       body: {
         overflowX: "hidden",
@@ -34,7 +33,6 @@ export const styleComponentGlobal: Components<Theme> = {
       root: {
         borderRadius: "10px",
         backgroundColor: "rgba(0, 0, 0, 0.27)",
-        // color: "rgba(0, 0, 0, 1)",
         backdropFilter: "blur(6px)",
         border: "2px solid rgba(255, 255, 255)",
         transition: "all 0.3s ease",

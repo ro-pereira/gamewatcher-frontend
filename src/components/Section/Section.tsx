@@ -1,15 +1,11 @@
-import { Grid } from "@mui/material";
+import { Box } from "@mui/material";
 import { ChampionshipsTable } from "../ChampionshipsTable/ChampionshipsTable.component";
-
-const sectionStyle = {
-  padding: "20rem",
-
-};
+import { sectionStyle } from "./section.style";
 
 export const Section = () => {
   return (
-    <Grid sx={sectionStyle} zIndex={10}>
+    <Box flexDirection="column" display="flex" sx={sectionStyle}>
       <ChampionshipsTable />
-    </Grid>
+    </Box>
   );
 };

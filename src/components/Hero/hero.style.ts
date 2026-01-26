@@ -1,41 +1,38 @@
 import {
   flexColumnAlignItemsCenter,
-  // flexColumnCenter,
   flexRowCenter,
 } from "@/src/Theme/util/layout.flex";
 
-// export const heroContainerStyle = {
-//   // backgroundImage: "url('/the-soccer-ball.jpg')",
-//   // backgroundRepeat: "no-repeat",
-//   // backgroundSize: "cover",
-//   // backgroundPosition: "center",
-//     backgrond: "#00ff2a54",
-// };
+export const heroContainerSx = {
+  height: "50vh",
+  minHeight: "30rem",
+  width: "100%",
+  minWidth: "42rem",
 
-export const heroHeaderBoxSx = {
-  width: "80%",
-  height: "50%",
-  justifyContent: { xs: "center", sm: "end" },
-  paddingTop: "calc(1rem + 1.4rem)",
-  paddingBottom: "1rem",
-  // zIndez: 999,
+  pointerEvents: "none",
+
   ...flexColumnAlignItemsCenter,
-  
+  justifyContent: "flex-end",
+
+  paddingTop: "5rem",
+
+  position: "absolute",
+  zIndex: 2,
+  top: 0,
 };
 
 export const titleContainerSx = {
   width: {
-    xs: "60%",
-    sm: "35rem",
+    xs: "38rem",
     md: "40rem",
-    lg: "50rem",
+    lg: "60rem",
   },
-  height: {
-    xs: "8rem",
-    sm: "14rem",
-    md: "14rem",
-    lg: "16rem",
+  minWidth: "34rem",
+  height:{
+    xs: "14rem",
+    lg: "18rem"
   },
+  minHeight: "14rem",
 
   ...flexRowCenter,
   boxShadow: "5px 5px 8px 4px rgba(1, 2, 5, 1)",
@@ -44,35 +41,22 @@ export const titleContainerSx = {
 };
 
 export const subtitleContainerSx = {
-  maxWidth: "calc(60% - 2rem)",
   width: {
-    xs: "50%",
-    sm: "30rem",
-    lg: "40rem",
+    xs: "30rem",
+    lg: "50rem",
   },
+  minWidth: "30rem",
   height: {
-    lg: "14rem",
+    xs: "14rem",
+    lg: "18rem"
   },
+  minHeight: "14rem",
+
   position: "relative",
   ...flexRowCenter,
   padding: { xs: "2rem", lg: "4rem" },
-  top: { xs: "-1rem", sm: "-2rem", md: "-2rem", lg: "-3rem" },
+  top: "-3rem",
   boxShadow: "5px 5px 8px 4px rgb(1, 2, 5)",
   borderRadius: "2rem",
   bgcolor: "primary.main",
-};
-
-export const searchContainerSx = {
-  position: "relative",
-  top: "35%",
-  // bgcolor: "red"
-};
-
-export const searchInputSx = {
-  display: "flex",
-  flexDirection: "column",
-  width: "50rem",
-  height: "100%",
-  maxWidth: "80%",
-  gap: 0.4,
 };
