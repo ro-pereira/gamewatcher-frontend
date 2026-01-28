@@ -4,7 +4,7 @@ import {
 } from "@/src/Theme/util/layout.flex";
 
 export const heroContainerSx = {
-  height: "40vh",
+  height: "50vh",
   minHeight: "30rem",
   width: "100%",
   minWidth: "42rem",

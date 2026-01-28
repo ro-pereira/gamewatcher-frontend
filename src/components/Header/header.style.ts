@@ -12,8 +12,8 @@ export const headerContainerSx = {
   top: 0,
   zIndex: 1,
 
-  height: "calc(40vh + 25rem)",
-  minHeight: "calc(30rem + 25rem)",
+  height: "calc(50vh + 20rem)",
+  minHeight: "calc(30rem + 20rem)",
   width: "100%",
   minWidth: "42rem",
 

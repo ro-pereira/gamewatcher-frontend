@@ -1,1 +1,0 @@
-export * from "./ChampionshipTableRow.component"
