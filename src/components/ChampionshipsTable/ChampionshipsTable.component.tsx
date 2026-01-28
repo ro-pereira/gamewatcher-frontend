@@ -10,12 +10,19 @@ import {
   Typography,
 } from "@mui/material";
 import { cellSx, tableContainerSx } from "./championshipTable.style";
+import { TGames } from "@/src/Theme/type";
+import { flexColumnCenter, flexRowCenter } from "@/src/Theme/util/layout.flex";
 
-export const ChampionshipsTable = () => {
+interface ChampionshipsTableProps {
+  games: TGames[];
+}
+
+export const ChampionshipsTable = ({ games }: ChampionshipsTableProps) => {
   return (
     <TableContainer component={Paper} sx={tableContainerSx}>
       <Table aria-label="caption table">
         <TableHead>
+
           <TableRow sx={{ height: "8rem" }}>
             <TableCell align="center" sx={cellSx}>
               Partida
@@ -29,44 +36,59 @@ export const ChampionshipsTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow component="th" scope="row" hover sx={{ minHeight: "14rem" }}>
-            <TableCell align="center">
-              <Box
-                sx={{
-                  display: "flex",
-                  gap: 2,
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
+          {games.map((game: TGames, index: number) => {
+            return (
+              <TableRow
+                key={index}
+                component="th"
+                scope="row"
+                hover
+                sx={{ minHeight: "14rem" }}
               >
-                <Box>
-                  <Typography variant="subtitle1">time name 1</Typography>
-                </Box>
-                <Typography
-                  variant="h2"
-                  alignItems="center"
-                  width="20%"
-                  justifyContent="center"
-                >
-                  x
-                </Typography>
-                <Box>
-                  <Typography variant="subtitle1">time name 2</Typography>
-                </Box>
-              </Box>
-            </TableCell>
-            <TableCell align="center">
-              <Box display="flex" flexDirection="column">
-                <Typography variant="subtitle1">Terça, dia 26/02</Typography>
-                <Typography variant="h2">15H30</Typography>
-              </Box>
-            </TableCell>
-            <TableCell align="center">
-              <Box>
-                <Typography>netflix</Typography>
-              </Box>
-            </TableCell>
-          </TableRow>
+                <TableCell align="center">
+                  <Box
+                    sx={{
+                      gap: 2,
+                      ...flexRowCenter
+                    }}
+                  >
+                    <Box>
+                      <Typography variant="subtitle1">
+                        {game.team_1_name}
+                      </Typography>
+                    </Box>
+                    <Typography
+                      variant="h2"
+                      width="20%"
+                      sx={flexRowCenter}
+                    >
+                      x
+                    </Typography>
+                    <Box>
+                      <Typography variant="subtitle1">
+                        {game.team_2_name}
+                      </Typography>
+                    </Box>
+                  </Box>
+                </TableCell>
+                <TableCell align="center">
+                  <Box sx={flexColumnCenter}>
+                    <Typography variant="subtitle1">
+                      Terça, dia 26/02
+                    </Typography>
+                    <Typography variant="h2">15H30</Typography>
+                  </Box>
+                </TableCell>
+                <TableCell align="center">
+                  <Box>
+                    {game.channels.map((channel: string) => {
+                  return <Typography key={channel}>{channel}</Typography>;
+                })}
+                  </Box>
+                </TableCell>
+              </TableRow>
+            );
+          })}
         </TableBody>
       </Table>
     </TableContainer>
