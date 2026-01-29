@@ -17,9 +17,16 @@ export type ThemeOptions = Omit<MuiThemeOptions, "components"> &
   };
 
 export type TGames = {
-  data: Date;
+  date: Date;
   championship: string;
   team_1_name: string;
   team_2_name: string;
   channels: string[];
 }
+
+
+export type TFormattedDate = {
+  weekday: string;
+  date: string;
+  time: string;
+};
