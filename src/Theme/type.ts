@@ -20,10 +20,13 @@ export type TGames = {
   date: Date;
   championship: string;
   team_1_name: string;
-  team_2_name: string;
-  channels: string[];
-}
+  team_1_img: string;
 
+  team_2_name: string;
+  team_2_img: string;
+
+  channels: string[];
+};
 
 export type TFormattedDate = {
   weekday: string;
