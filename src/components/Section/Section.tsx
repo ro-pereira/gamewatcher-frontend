@@ -1,10 +1,13 @@
-import { Box } from "@mui/material";
+import { TGames } from "@/src/Theme/type";
+import { Box, CircularProgress } from "@mui/material";
+import { useEffect, useState } from "react";
 import { ChampionshipsTable } from "../ChampionshipsTable/ChampionshipsTable.component";
 import { sectionStyle } from "./section.style";
-import { useEffect, useState } from "react";
-import { TGames } from "@/src/Theme/type";
 
-export const Section = () => {
+interface TSection {
+  changeInput: string;
+}
+export const Section = ({ changeInput }: TSection) => {
   const url = "http://localhost:3001";
   const [gamesResult, setGamesResult] = useState<TGames[]>([]);
   const [games, setGames] = useState<TGames[]>([]);
@@ -32,21 +35,31 @@ export const Section = () => {
     const gameFiltered = gamesResult.filter((game: TGames) => {
       return new Date(game.date) >= today;
     });
+
     const sortByDateGames: TGames[] = [...gameFiltered].sort(
       (a: TGames, b: TGames): number => {
         const dateA = new Date(a.date).getTime();
         const dateB = new Date(b.date).getTime();
-
         return dateA - dateB;
       },
     );
 
-    setGames(sortByDateGames);
-  }, [gamesResult]);
+    const filterInput = sortByDateGames.filter((game: TGames) => {
+      return (
+        game.team_1_name.toLowerCase().includes(changeInput.toLowerCase()) ||
+        game.team_2_name.toLowerCase().includes(changeInput.toLowerCase())
+      );
+    });
+    setGames(filterInput);
+  }, [changeInput, gamesResult]);
 
   return (
     <Box flexDirection="column" display="flex" sx={sectionStyle}>
-      <ChampionshipsTable games={games} />
+      {isLoading ? (
+        <CircularProgress enableTrackSlot size="3rem" />
+      ) : (
+        <ChampionshipsTable games={games} title={"Próximos jogos"} />
+       )} 
     </Box>
   );
 };

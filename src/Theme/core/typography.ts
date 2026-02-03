@@ -16,39 +16,39 @@ export const typography: TypographyVariantsOptions = {
   fontFamily: ['"Inter"', '"Monomaniac One"', "sans-serif"].join(","),
   h1: {
     fontFamily: "Monomaniac One, sans-serif",
-    fontSize: "6.8rem",
+    fontSize: "5.8rem",
     
     "@media (max-width:1200px)": {
-      fontSize: "5.2rem",
+      fontSize: "4.2rem",
     },
   },
   h2: {
     fontFamily: "Monomaniac One, sans-serif",
-    fontSize: "5rem",
+    fontSize: "4rem",
     "@media (max-width:1200px)": {
-      fontSize: "3rem",
+      fontSize: "2rem",
     },
   },
   h3: {
     fontFamily: "Monomaniac One, sans-serif",
-    fontSize: "2rem",
+    fontSize: "1.2rem",
   },
   body1: {
     fontFamily: "Inter, sans-serif",
-    fontSize: "1.8rem",
+    fontSize: "1.4rem",
     lineHeight: 1,
     letterSpacing: "-1%",
     "@media (max-width:1200px)": {
-      fontSize: "1.6rem",
+      fontSize: "1.2rem",
     },
   },
   body2: {
     fontFamily: "Inter, sans-serif",
-    fontSize: "1.6rem",
+    fontSize: "1.2rem",
     fontWeight: "400",
   },
   subtitle1: {
     fontFamily: "Inter, sans-serif",
-    fontSize: "1.4rem",
+    fontSize: "1.6rem",
   },
 };

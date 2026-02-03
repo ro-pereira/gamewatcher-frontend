@@ -1,10 +1,15 @@
 "use client";
 
 import { Box, OutlinedInput, Typography } from "@mui/material";
-import { useRef } from "react";
+import { Dispatch, SetStateAction, useRef } from "react";
 import { headerContainerSx, inputBoxSx } from "./header.style";
 
-export const Header = () => {
+interface IHeader {
+  setChangeInput: Dispatch<SetStateAction<string>>;
+  changeInput: string;
+}
+
+export const Header = ({ setChangeInput, changeInput }: IHeader) => {
   const headerRef = useRef<HTMLDivElement>(null);
   const inputBoxRef = useRef<HTMLDivElement>(null);
 
@@ -21,7 +26,9 @@ export const Header = () => {
         </Typography>
         <OutlinedInput
           sx={{ width: "100%" }}
-          placeholder="Pesquise pelo time, canal ou campeonato..."
+          placeholder="Digite o nome do time de futebol..."
+          value={changeInput}
+          onChange={(e) => setChangeInput(e.target.value)}
         />
       </Box>
     </Box>

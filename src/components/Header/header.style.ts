@@ -12,7 +12,7 @@ export const headerContainerSx = {
   top: 0,
   zIndex: 1,
 
-  height: "calc(50vh + 20rem)",
+  height: "calc(50vh + 20vh)",
   minHeight: "calc(30rem + 20rem)",
   width: "100%",
   minWidth: "42rem",
@@ -23,9 +23,10 @@ export const headerContainerSx = {
     bottom: "-1rem",
     left: 0,
     width: "100%",
-    height: "20%",
+    height: "30%",
     background: "linear-gradient(to top, rgb(1, 2, 5), transparent)",
     pointerEvents: "none",
+    
   },
 };
 
@@ -36,11 +37,11 @@ export const inputBoxSx = {
   ...flexColumnAlignItemsCenter,
   justifyContent: "center",
   gap: 1,
-  height: "25rem",
-  width: {
-    xs: "38rem",
-    md: "40rem",
-    lg: "60rem",
+  height: "20vh",
+    width: {
+   xs: "42rem",
+   sm: "55rem",
+    md: "80rem",
   },
   padding: "1rem",
 };

@@ -3,10 +3,10 @@
 import { Header } from "@/src/components/Header/Header.component";
 import { Hero } from "@/src/components/Hero";
 import { Section } from "@/src/components/Section";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Home = () => {
-
+const [changeInput, setChangeInput] = useState<string>("")
     useEffect(() => {
     async function loadGsap() {
       const gsap = (await import("gsap")).default;
@@ -29,9 +29,9 @@ const Home = () => {
   return (
     <div id="smooth-wrapper">
       <div id="smooth-content">
-        <Header  />
+        <Header setChangeInput={setChangeInput} changeInput={changeInput} />
         <Hero />
-        <Section />
+        <Section changeInput={changeInput} />
       </div>
     </div>
   );
