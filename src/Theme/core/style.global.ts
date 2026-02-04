@@ -32,8 +32,8 @@ export const styleComponentGlobal: Components<Theme> = {
     styleOverrides: {
       root: {
         borderRadius: "10px",
-        backgroundColor: "rgba(0, 0, 0, 0.27)",
-        backdropFilter: "blur(6px)",
+        backgroundColor: "rgb(52, 52, 52)",
+        // backdropFilter: "blur(.2rem)",
         border: "2px solid rgba(255, 255, 255)",
         transition: "all 0.3s ease",
         boxShadow: "5px 5px 8px 4px rgb(1, 2, 5)",

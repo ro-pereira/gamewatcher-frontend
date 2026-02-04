@@ -3,12 +3,15 @@ import { PaletteOptions } from "@mui/material/styles";
 export const palette: PaletteOptions = {
   mode: "dark",
   primary: {
-    main: "rgb(225, 170, 18)",
+    main: "rgb(18, 225, 42)",
+    // main: "rgb(225, 170, 18)",
+// 
     contrastText: "rgb(255, 247, 247)",
   },
   secondary: {
-    main: "rgb(0, 176, 166)",
-    contrastText: "rgb(255, 247, 247)",
+    main: "rgb(18, 225, 42)",
+    // main: "rgb(0, 176, 166)",
+    contrastText: "rgb(18, 225, 42)",
   },
   background: {
     default: "rgb(1, 2, 4)",

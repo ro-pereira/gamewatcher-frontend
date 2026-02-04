@@ -29,8 +29,8 @@ const [changeInput, setChangeInput] = useState<string>("")
   return (
     <div id="smooth-wrapper">
       <div id="smooth-content">
-        <Header setChangeInput={setChangeInput} changeInput={changeInput} />
-        <Hero />
+        {/* <Header setChangeInput={setChangeInput} changeInput={changeInput} /> */}
+        <Hero  setChangeInput={setChangeInput} changeInput={changeInput}  />
         <Section changeInput={changeInput} />
       </div>
     </div>

@@ -5,25 +5,20 @@ import { flexColumnCenter, flexRowCenter } from "@/src/Theme/util/layout.flex";
 import {
   Box,
   Chip,
-  Paper,
   Stack,
-  Table,
-  TableBody,
   TableCell,
-  TableContainer,
-  TableHead,
   TableRow,
-  Typography,
+  Typography
 } from "@mui/material";
-import { cellSx, tableContainerSx } from "./championshipTable.style";
+import { cellSx } from "./championshipTable.style";
 import Image from "next/image";
+// import { GamesByDate } from "../Section";
 
 interface ChampionshipsTableProps {
-  games: TGames[];
-  title: string;
+  game: TGames;
 }
 
-export const ChampionshipsTable = ({ games }: ChampionshipsTableProps) => {
+export const ChampionshipsTable = ({ game }: ChampionshipsTableProps) => {
   const formatDate = (isoDate: string | Date): TFormattedDate => {
     const dateObj = new Date(isoDate);
 
@@ -49,34 +44,9 @@ export const ChampionshipsTable = ({ games }: ChampionshipsTableProps) => {
     };
   };
 
-  return (
-    <Box>
-      <Box
-        sx={{
-          width: "100%",
-          height: "10rem",
-          ...flexRowCenter,
-        }}
-      >
-        <Typography variant="h2">Próximos jogos</Typography>{" "}
-      </Box>
-      <TableContainer component={Paper} sx={tableContainerSx}>
-        <Table aria-label="caption table">
-          <TableHead>
-            <TableRow sx={{ height: "8rem" }}>
-              <TableCell align="center" sx={cellSx}>
-                Partida
-              </TableCell>
-              <TableCell align="center" sx={cellSx}>
-                Dia
-              </TableCell>
-              <TableCell align="center" sx={cellSx}>
-                Assista em:
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          {games.length === 0 ? (
-            <Box
+
+
+            {/* <Box
               sx={{
                 position: "absolute",
                 left: "40%",
@@ -84,13 +54,13 @@ export const ChampionshipsTable = ({ games }: ChampionshipsTableProps) => {
               }}
             >
               <Typography variant="body1">team not found</Typography>
-            </Box>
-          ) : (
-            <TableBody>
-              {games.map((game: TGames, index: number) => {
-                return (
+            </Box> */}
+          
+  console.log(game);
+    return (
+            // <TableBody>
                   <TableRow
-                    key={index}
+                    // key={index}
                     component="th"
                     scope="row"
                     hover
@@ -132,12 +102,12 @@ export const ChampionshipsTable = ({ games }: ChampionshipsTableProps) => {
                     </TableCell>
                     <TableCell align="center" sx={cellSx}>
                       <Box sx={flexColumnCenter}>
-                        <Typography variant="subtitle1">
-                          {formatDate(game.date).weekday},{" "}
+                        <Typography variant="subtitle1" color="primary.main">
+                          {formatDate(game.date).weekday},
                           {formatDate(game.date).date}
                         </Typography>
-                        <Typography variant="h2">
-                          {formatDate(game.date).time}
+                        <Typography variant="h2" color="primary.main">
+                          {formatDate(game.date).time.replace(":", "H")}
                         </Typography>
                       </Box>
                     </TableCell>
@@ -166,12 +136,10 @@ export const ChampionshipsTable = ({ games }: ChampionshipsTableProps) => {
                       </Stack>
                     </TableCell>
                   </TableRow>
-                );
-              })}
-            </TableBody>
-          )}
-        </Table>
-      </TableContainer>
-    </Box>
+                
+      //       </TableBody>
+      //   </Table>
+      // </TableContainer>
+    // </Box>
   );
 };

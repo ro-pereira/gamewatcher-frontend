@@ -16,10 +16,10 @@ export const typography: TypographyVariantsOptions = {
   fontFamily: ['"Inter"', '"Monomaniac One"', "sans-serif"].join(","),
   h1: {
     fontFamily: "Monomaniac One, sans-serif",
-    fontSize: "5.8rem",
+    fontSize: "5rem",
     
     "@media (max-width:1200px)": {
-      fontSize: "4.2rem",
+      fontSize: "4rem",
     },
   },
   h2: {
