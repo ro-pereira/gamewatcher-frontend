@@ -1,13 +1,12 @@
 "use client";
 
-import { Header } from "@/src/components/Header/Header.component";
 import { Hero } from "@/src/components/Hero";
-import { Section } from "@/src/components/Section";
+import { Main } from "@/src/components/Main";
 import { useEffect, useState } from "react";
 
 const Home = () => {
-const [changeInput, setChangeInput] = useState<string>("")
-    useEffect(() => {
+  const [changeInput, setChangeInput] = useState<string>("");
+  useEffect(() => {
     async function loadGsap() {
       const gsap = (await import("gsap")).default;
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
@@ -25,13 +24,11 @@ const [changeInput, setChangeInput] = useState<string>("")
     loadGsap();
   }, []);
 
-
   return (
     <div id="smooth-wrapper">
       <div id="smooth-content">
-        {/* <Header setChangeInput={setChangeInput} changeInput={changeInput} /> */}
-        <Hero  setChangeInput={setChangeInput} changeInput={changeInput}  />
-        <Section changeInput={changeInput} />
+        <Hero setChangeInput={setChangeInput} changeInput={changeInput} />
+        <Main />
       </div>
     </div>
   );
