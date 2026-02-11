@@ -11,9 +11,7 @@ type ColorSchemeOptionsExtended = ColorSystemOptions;
 
 export type ThemeOptions = Omit<MuiThemeOptions, "components"> &
   Pick<CssVarsThemeOptions, "defaultColorScheme" | "components"> & {
-    colorSchemes?: Partial<
-      Record<ThemeColorScheme, ColorSchemeOptionsExtended>
-    >;
+    colorSchemes?: Partial<Record<ThemeColorScheme, ColorSchemeOptionsExtended>>;
   };
 
 export type TGames = {
@@ -32,4 +30,18 @@ export type TFormattedDate = {
   weekday: string;
   date: string;
   time: string;
+};
+
+export type TMainProps = {
+  upcomingGamesList: TGames[];
+  isLoading: boolean;
+};
+
+export type GamesByDay = {
+  day: string;
+  games: TGames[];
+};
+
+export type TcardChampionchipProps = {
+  upcomingGamesList: TGames[];
 };

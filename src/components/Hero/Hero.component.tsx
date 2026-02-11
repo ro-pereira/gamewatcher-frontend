@@ -1,18 +1,41 @@
 "use client";
 
+import { TGames } from "@/src/Theme/type";
 import { Box, OutlinedInput, Typography } from "@mui/material";
-import { heroContainerSx, inputHeroSx, inputSx, titleContainerSx } from "./hero.style";
-// import { headerContainerSx, inputBoxSx } from "../Header/header.style";
-import { Dispatch, SetStateAction } from "react";
+import { gsap } from "gsap";
+import { useEffect, useRef, useState } from "react";
+import {
+  heroContainerSx,
+  // inputSx,
+  searchContainerSx,
+  searchResultSx,
+  titleContainerSx,
+} from "./hero.style";
 
 interface IHero {
-  setChangeInput: Dispatch<SetStateAction<string>>;
-  changeInput: string;
+  upcomingGamesList: TGames[];
 }
 
-export const Hero = ({ changeInput, setChangeInput }: IHero) => {
+export const Hero = ({ upcomingGamesList }: IHero) => {
+  const heroRef = useRef<HTMLDivElement | null>(null);
+    const [changeInput, setChangeInput] = useState< string | null>(null);
+  
+
+  useEffect(() => {
+    if (!heroRef.current) return;
+
+    gsap.to(heroRef.current, {
+      height: changeInput ? "calc(15vh + 10vh + 5vh)" : "calc(15vh + 10vh)",
+      minHeight: changeInput
+        ? "calc(25rem + 15rem + 20rem)"
+        : "calc(25rem + 15rem )",
+      duration: 0.5,
+      ease: "power3.out",
+    });
+  }, [changeInput]);
+
   return (
-    <Box sx={heroContainerSx}>
+    <Box ref={heroRef} sx={heroContainerSx}>
       <Box sx={titleContainerSx}>
         <Typography variant="h1" align="center" color="secondary.contrastText">
           Onde assistir os próximos jogos?
@@ -28,16 +51,17 @@ export const Hero = ({ changeInput, setChangeInput }: IHero) => {
         </Typography>
       </Box>
 
-      <Box sx={inputHeroSx }>
-        <Box sx={inputSx}>
-          <OutlinedInput
-            sx={{ width: "100%" }}
-            placeholder="Digite o nome do time de futebol..."
-            value={changeInput}
-            onChange={(e) => setChangeInput(e.target.value)}
-          />
-        </Box>
+      <Box sx={searchContainerSx}>
+        <OutlinedInput
+          sx={{ width: "100%", pointerEvents: "auto", zIndex: 999 }}
+          placeholder="Digite o nome do time de futebol..."
+          value={changeInput}
+          onChange={(e) => setChangeInput(e.target.value)}
+        />
       </Box>
+      {changeInput && <Box sx={searchResultSx}>d</Box>}
     </Box>
+
+
   );
 };

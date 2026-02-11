@@ -4,6 +4,7 @@ import type { ThemeProviderProps as MuiThemeProviderProps } from "@mui/material/
 import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
 import { ReactNode } from "react";
 import { createThemeConfig } from "./createTheme";
+// import { ThemeOptions } from "@mui/material/styles";
 import { ThemeOptions } from "./type";
 
 type ThemeProviderProps = Partial<MuiThemeProviderProps> & {

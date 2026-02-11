@@ -2,10 +2,15 @@
 
 import { Hero } from "@/src/components/Hero";
 import { Main } from "@/src/components/Main";
-import { useEffect, useState } from "react";
+import { TGames } from "@/src/Theme/type";
+import { useEffect, useMemo, useState } from "react";
+const url = "http://localhost:3001";
+const today = new Date();
 
 const Home = () => {
-  const [changeInput, setChangeInput] = useState<string>("");
+  const [gamesResult, setGamesResult] = useState<TGames[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  
   useEffect(() => {
     async function loadGsap() {
       const gsap = (await import("gsap")).default;
@@ -24,11 +29,32 @@ const Home = () => {
     loadGsap();
   }, []);
 
+  useEffect(() => {
+    const fetchDataGames = async () => {
+      try {
+        const result = await fetch(`${url}/allMatchs`);
+        const responseData: TGames[] = await result.json();
+
+        setGamesResult(responseData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchDataGames();
+  }, []);
+
+  const upcomingGamesList = useMemo(() => {
+    return gamesResult.filter((game) => new Date(game.date) >= today);
+  }, [gamesResult]);
+
   return (
     <div id="smooth-wrapper">
       <div id="smooth-content">
-        <Hero setChangeInput={setChangeInput} changeInput={changeInput} />
-        <Main />
+        <Hero upcomingGamesList={upcomingGamesList}  />
+        <Main upcomingGamesList={upcomingGamesList} isLoading={isLoading} />
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 "use client";
 
-import { TGames } from "@/src/Theme/type";
+import { GamesByDay, TMainProps } from "@/src/Theme/type";
 import { Box, Button, CircularProgress, Typography } from "@mui/material";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { ChampionshipsTable } from "../ChampionshipsTable/ChampionshipsTable.component";
 import {
   mainContainerSx,
@@ -21,45 +21,20 @@ const week_day = [
   "sábado",
 ] as const;
 
-const url = "http://localhost:3001";
 const today = new Date();
 
-export const Main = () => {
-  const [selectedDay, setSelectedDay] = useState<string | null>(null);
-  const [gamesResult, setGamesResult] = useState<TGames[]>([]);
-  type GamesByDay = {
-    day: string;
-    games: TGames[];
-  };
-
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchDataGames = async () => {
-      try {
-        const result = await fetch(`${url}/allMatchs`);
-        const responseData: TGames[] = await result.json();
-
-        setGamesResult(responseData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchDataGames();
-  }, []);
-
-  useEffect(() => {
-    if (!selectedDay) {
-      setSelectedDay(week_day[today.getDay()]);
-    }
-  }, [selectedDay]);
-
+export const Main = ({ upcomingGamesList, isLoading }: TMainProps) => {
+  const [selectedDay, setSelectedDay] = useState<string>(
+    week_day[today.getDay()],
+  );
+;
   const gameInThisWeek = useMemo<GamesByDay[]>(() => {
-    return gamesResult
-      .filter((game) => new Date(game.date) >= today)
+    return upcomingGamesList
+      .filter((game) => {
+        const gameDate = new Date(game.date);
+        const gameDayIndex = gameDate.getDay();
+        return gameDayIndex >= today.getDay() && gameDayIndex <= 6;
+      })
       .reduce<GamesByDay[]>((acc, game) => {
         const day = week_day[new Date(game.date).getDay()];
 
@@ -75,7 +50,10 @@ export const Main = () => {
         }
         return acc;
       }, []);
-  }, [gamesResult]);
+  }, [upcomingGamesList]);
+
+  console.log("game this week", gameInThisWeek);
+  
 
   return (
     <Box sx={mainContainerSx}>
@@ -104,7 +82,7 @@ export const Main = () => {
           if (group.day !== selectedDay) return null;
 
           return (
-            <Box key={index}>
+            <Box key={index} width={"100%"}>
               {isLoading ? (
                 <CircularProgress enableTrackSlot size="3rem" />
               ) : (

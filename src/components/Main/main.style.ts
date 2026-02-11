@@ -39,6 +39,4 @@ export const tableSx = {
     md: "80rem",
     lg: "100rem",
   },
-  minWidth: "42rem",
-  maxWidth: "100rem",
 }

@@ -44,7 +44,17 @@ export const ChampionshipsTable = ({ game }: ChampionshipsTableProps) => {
   };
 
   return (
-    <TableRow component="th" scope="row" hover sx={{ minHeight: "14rem" }}>
+    <TableRow
+      component="th"
+      scope="row"
+      hover
+      sx={{
+        minHeight: "14rem",
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
       <TableCell align="center" sx={cellSx}>
         <Box
           sx={{
@@ -78,7 +88,7 @@ export const ChampionshipsTable = ({ game }: ChampionshipsTableProps) => {
       <TableCell align="center" sx={cellSx}>
         <Box sx={flexColumnCenter}>
           <Typography variant="subtitle1" color="primary.main">
-            {formatDate(game.date).weekday},{formatDate(game.date).date}
+            {formatDate(game.date).weekday}, {formatDate(game.date).date}
           </Typography>
           <Typography variant="h2" color="primary.main">
             {formatDate(game.date).time.replace(":", "H")}
