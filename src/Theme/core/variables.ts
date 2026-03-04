@@ -4,6 +4,6 @@ export const heroTitleContainer = {
 }
 
 export const searchContainer = {
-  height: "9vh",
+  height: "12vh",
   minHeight: "13rem"
 }

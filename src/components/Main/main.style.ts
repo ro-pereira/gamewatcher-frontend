@@ -8,9 +8,13 @@ export const mainContainerSx = {
   minHeight: "100vh",
   zIndex: 0,
   ...flexColumnAlignItemsCenter,
-  padding: "2rem 4rem 12rem 4rem",
-  gap: "2rem",
+  alingSelf: "center",
+  padding: {
+    xs: 2,
+    sm: "2rem 4rem 12rem 4rem"
+  },
   width: "100%",
+  minWidth: "42rem",
 
 };
 
@@ -24,7 +28,7 @@ export const paginationButtonBoxSx = {
   minWidth: "42rem",
   maxWidth: "100rem",
   ...flexRowCenter,
-  gap: 1
+  gap: {xs: 0, sm: 1}
 };
 
 export const paginationButtonSx = {

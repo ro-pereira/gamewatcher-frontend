@@ -4,6 +4,7 @@ import type {
   SupportedColorScheme,
   ThemeOptions as MuiThemeOptions,
 } from "@mui/material/styles";
+import { TypographyProps } from "@mui/material/Typography";
 
 export type ThemeColorScheme = SupportedColorScheme;
 
@@ -53,5 +54,6 @@ export type TTeamNameAndIcon = {
 }
 
 export type TGameHour = {
-  gameDate: Date | string;
+  gameDate: Date | string,
+   variantChange?: TypographyProps["variant"];
 };

@@ -75,7 +75,7 @@ export const CardChampionchip = ({ game }: TcardChampionchipProps) => {
             <Typography variant="subtitle2" color="primary.constext">
               {formatDate(game.date).weekday}, {formatDate(game.date).date}
               <Box sx={{ ...flexRowCenter }}>
-                <GameHour gameDate={game.date} />
+                <GameHour variantChange="h3" gameDate={game.date} />
               </Box>
             </Typography>
           </Box>

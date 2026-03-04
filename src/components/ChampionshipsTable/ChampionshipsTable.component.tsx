@@ -49,7 +49,7 @@ export const ChampionshipsTable = ({ game }: ChampionshipsTableProps) => {
             ...flexColumnCenter,
           }}
         >
-          <GameHour gameDate={game.date} />
+          <GameHour variantChange={"h2"} gameDate={game.date} />
         </Box>
         <Typography variant="body2" textAlign={"center"}>
           {game.championship}

@@ -64,7 +64,7 @@ export const Main = ({ upcomingGamesList, isLoading }: TMainProps) => {
           });
           const isPastDay = index < today.getDay();
 
-          const isDisabled = isPastDay || !hasGame;
+          const isDisabled = isPastDay || !hasGame || gameInThisWeek.length <= 0;
           return (
             <Button
               key={day}
