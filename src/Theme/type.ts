@@ -43,5 +43,15 @@ export type GamesByDay = {
 };
 
 export type TcardChampionchipProps = {
-  upcomingGamesList: TGames[];
+  game: TGames;
+};
+
+
+export type TTeamNameAndIcon = {
+    teamName: string,
+    teamImg: string
+}
+
+export type TGameHour = {
+  gameDate: Date | string;
 };

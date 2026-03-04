@@ -1,8 +1,12 @@
+"use client"
+
+import {
+  heroTitleContainer,
+  searchContainer,
+} from "@/src/Theme/core/variables";
 import {
   flexColumnAlignItemsCenter,
-  flexRowCenter,
-  // flexRowCenter,
-} from "@/src/Theme/util/layout.flex";
+} from "@/src/Theme/core/layout.flex";
 
 export const heroContainerSx = {
   width: "100%",
@@ -12,13 +16,13 @@ export const heroContainerSx = {
   backgroundSize: "cover",
   backgroundPosition: "center",
   ...flexColumnAlignItemsCenter,
-  gap: 3,
+  // gap: 2,
 
   "&::after": {
     content: '""',
     position: "absolute",
-    // bottom: "-1rem",
     left: 0,
+    minWidth: "42rem",
     width: "100%",
     height: "100%",
     backdropFilter: "blur(14px)",
@@ -46,11 +50,11 @@ export const titleContainerSx = {
     lg: "50vw",
   },
 
-  height: "15vh",
-  minHeight: "25rem",
+  height: heroTitleContainer.height,
+  minHeight: heroTitleContainer.minHeight,
   ...flexColumnAlignItemsCenter,
   justifyContent: "center",
-  gap: 3,
+  gap: 2,
 };
 
 export const searchContainerSx = {
@@ -63,34 +67,24 @@ export const searchContainerSx = {
     lg: "100rem",
   },
   minWidth: "42rem",
-
+  pointerEvents: "auto",
   zIndex: 99,
   position: "relative",
-  top: "-2rem",
-  height: "8vh",
+  height: searchContainer.height,
   gap: 3,
-  minHeight: "10rem",
+  minHeight: searchContainer.minHeight,
 };
 
 export const inputSx = {
   position: "relative",
-  pointerEvents: "auto",
-  zIndex: 999,
+  zIndex: 99,
   ...flexColumnAlignItemsCenter,
   justifyContent: "center",
+  height: "1.7rem",
   width: {
     xs: "38rem",
     md: "40rem",
     lg: "60rem",
   },
   padding: "1rem",
-};
-
-export const searchResultSx = {
-  position: "relative",
-  width: "100%",
-  pointerEvents: "none",
-  ...flexRowCenter,
-  borderRadius: "1rem",
-  minHeight: "20rem",
 };

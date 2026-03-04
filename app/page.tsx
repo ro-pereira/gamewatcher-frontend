@@ -10,7 +10,7 @@ const today = new Date();
 const Home = () => {
   const [gamesResult, setGamesResult] = useState<TGames[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  
+
   useEffect(() => {
     async function loadGsap() {
       const gsap = (await import("gsap")).default;
@@ -47,13 +47,17 @@ const Home = () => {
   }, []);
 
   const upcomingGamesList = useMemo(() => {
-    return gamesResult.filter((game) => new Date(game.date) >= today);
+    return gamesResult
+      .filter((game) => new Date(game.date) >= today)
+      .sort((a, b) => {
+        return new Date(a.date).getTime() - new Date(b.date).getTime();
+      });
   }, [gamesResult]);
 
   return (
     <div id="smooth-wrapper">
       <div id="smooth-content">
-        <Hero upcomingGamesList={upcomingGamesList}  />
+        <Hero upcomingGamesList={upcomingGamesList} />
         <Main upcomingGamesList={upcomingGamesList} isLoading={isLoading} />
       </div>
     </div>

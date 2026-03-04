@@ -3,7 +3,6 @@ import { palette } from "./core/palette";
 import { styleComponentGlobal } from "./core/style.global";
 import { typography } from "./core/typography";
 import { ThemeOptions } from "./type";
-// export const HEADER_HEIGHT = "15vh";
 
 export const baseTheme: ThemeOptions = {
   colorSchemes: {

@@ -1,7 +1,7 @@
 "use client";
 
 import { GamesByDay, TMainProps } from "@/src/Theme/type";
-import { Box, Button, CircularProgress, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { useMemo, useState } from "react";
 import { ChampionshipsTable } from "../ChampionshipsTable/ChampionshipsTable.component";
 import {
@@ -27,7 +27,6 @@ export const Main = ({ upcomingGamesList, isLoading }: TMainProps) => {
   const [selectedDay, setSelectedDay] = useState<string>(
     week_day[today.getDay()],
   );
-;
   const gameInThisWeek = useMemo<GamesByDay[]>(() => {
     return upcomingGamesList
       .filter((game) => {
@@ -52,22 +51,25 @@ export const Main = ({ upcomingGamesList, isLoading }: TMainProps) => {
       }, []);
   }, [upcomingGamesList]);
 
-  console.log("game this week", gameInThisWeek);
-  
+  const selectedDayGames = useMemo(() => {
+    return gameInThisWeek.find((g) => g.day === selectedDay);
+  }, [gameInThisWeek, selectedDay]);
 
   return (
     <Box sx={mainContainerSx}>
       <Box sx={paginationButtonBoxSx}>
-        {week_day.map((day: string) => {
+        {week_day.map((day: string, index: number) => {
           const hasGame = gameInThisWeek.filter((g: GamesByDay) => {
             return g.day === day;
           });
+          const isPastDay = index < today.getDay();
 
+          const isDisabled = isPastDay || !hasGame;
           return (
             <Button
               key={day}
               sx={paginationButtonSx}
-              disabled={hasGame.length <= 0}
+              disabled={isDisabled}
               variant={selectedDay === day ? "contained" : "outlined"}
               onClick={() => setSelectedDay(day)}
             >
@@ -78,21 +80,23 @@ export const Main = ({ upcomingGamesList, isLoading }: TMainProps) => {
       </Box>
 
       <Box sx={tableSx}>
-        {gameInThisWeek.map((group, index) => {
-          if (group.day !== selectedDay) return null;
-
-          return (
-            <Box key={index} width={"100%"}>
-              {isLoading ? (
-                <CircularProgress enableTrackSlot size="3rem" />
-              ) : (
-                group.games.map((game, index) => (
-                  <ChampionshipsTable key={index} game={game} />
-                ))
-              )}
-            </Box>
-          );
-        })}
+        {gameInThisWeek.length <= 0 ? (
+          <Typography variant="body1" textAlign="center" marginTop={8}>
+            Sem informações para esta semana.
+          </Typography>
+        ) : (
+          <Box width={"100%"}>
+            {!selectedDayGames ? (
+              <Typography variant="body1" textAlign="center" marginTop={8}>
+                Sem informações para hoje.
+              </Typography>
+            ) : (
+              selectedDayGames.games.map((game, index) => {
+                return <ChampionshipsTable key={index} game={game} />;
+              })
+            )}
+          </Box>
+        )}
       </Box>
     </Box>
   );

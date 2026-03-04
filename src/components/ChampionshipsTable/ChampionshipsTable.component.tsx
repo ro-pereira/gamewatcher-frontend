@@ -1,7 +1,9 @@
 "use client";
 
-import { TFormattedDate, TGames } from "@/src/Theme/type";
-import { flexColumnCenter, flexRowCenter } from "@/src/Theme/util/layout.flex";
+import { GameHour } from "@/src/commom/component/gameHour.component";
+import { TeamNameAndIcon } from "@/src/commom/component/TeamNameAndIcon.component";
+import { flexColumnCenter, flexRowCenter } from "@/src/Theme/core/layout.flex";
+import { TGames } from "@/src/Theme/type";
 import {
   Box,
   Chip,
@@ -10,39 +12,12 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import Image from "next/image";
-import { cellSx } from "./championshipTable.style";
 
 interface ChampionshipsTableProps {
   game: TGames;
 }
 
 export const ChampionshipsTable = ({ game }: ChampionshipsTableProps) => {
-  const formatDate = (isoDate: string | Date): TFormattedDate => {
-    const dateObj = new Date(isoDate);
-
-    const weekday = new Intl.DateTimeFormat("pt-BR", {
-      weekday: "long",
-    }).format(dateObj);
-
-    const date = new Intl.DateTimeFormat("pt-BR", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-    }).format(dateObj);
-
-    const time = new Intl.DateTimeFormat("pt-BR", {
-      hour: "2-digit",
-      minute: "2-digit",
-    }).format(dateObj);
-
-    return {
-      weekday,
-      date,
-      time,
-    };
-  };
-
   return (
     <TableRow
       component="th"
@@ -50,52 +25,38 @@ export const ChampionshipsTable = ({ game }: ChampionshipsTableProps) => {
       hover
       sx={{
         minHeight: "14rem",
-        width: "100%",
+        minWidth: "42rem",
         display: "flex",
-        justifyContent: "center",
       }}
     >
-      <TableCell align="center" sx={cellSx}>
+      <TableCell sx={{ ...flexRowCenter, flex: 2 }}>
+        <TeamNameAndIcon
+          teamName={game.team_1_name}
+          teamImg={game.team_1_img}
+        />
+        <Typography variant="h2" sx={{ ...flexRowCenter, width: "4rem" }}>
+          x
+        </Typography>
+        <TeamNameAndIcon
+          teamName={game.team_2_name}
+          teamImg={game.team_2_img}
+        />
+      </TableCell>
+
+      <TableCell sx={{ ...flexColumnCenter, flex: 1, gap: 1 }}>
         <Box
           sx={{
-            gap: 1,
-            ...flexRowCenter,
+            ...flexColumnCenter,
           }}
         >
-          <Box sx={{ width: "40%", ...flexColumnCenter }}>
-            <Typography variant="subtitle1">{game.team_1_name}</Typography>
-            <Image
-              src={game.team_1_img}
-              alt={`emblema do ${game.team_1_name}`}
-              height={40}
-              width={40}
-            />
-          </Box>
-          <Typography variant="h2" width="20%" sx={flexRowCenter}>
-            x
-          </Typography>
-          <Box sx={{ width: "40%", ...flexColumnCenter }}>
-            <Typography variant="subtitle1">{game.team_2_name}</Typography>
-            <Image
-              src={game.team_2_img}
-              alt={`emblema do ${game.team_2_name}`}
-              height={40}
-              width={40}
-            />
-          </Box>
+          <GameHour gameDate={game.date} />
         </Box>
+        <Typography variant="body2" textAlign={"center"}>
+          {game.championship}
+        </Typography>
       </TableCell>
-      <TableCell align="center" sx={cellSx}>
-        <Box sx={flexColumnCenter}>
-          <Typography variant="subtitle1" color="primary.main">
-            {formatDate(game.date).weekday}, {formatDate(game.date).date}
-          </Typography>
-          <Typography variant="h2" color="primary.main">
-            {formatDate(game.date).time.replace(":", "H")}
-          </Typography>
-        </Box>
-      </TableCell>
-      <TableCell align="center" sx={cellSx}>
+
+      <TableCell sx={{ ...flexRowCenter, flex: 2 }}>
         <Stack direction="row" flexWrap="wrap" gap={1} alignItems="center">
           {game.channels.map((channel: string, index: number) => {
             return (

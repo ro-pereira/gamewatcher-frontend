@@ -30,6 +30,6 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts",
     "src/theme/mui.d.ts"
-  ],
+, "src/Theme/style"  ],
   "exclude": ["node_modules"]
 }

@@ -17,7 +17,7 @@ export const typography: TypographyVariantsOptions = {
   h1: {
     fontFamily: "Monomaniac One, sans-serif",
     fontSize: "5rem",
-    
+
     "@media (max-width:1200px)": {
       fontSize: "4rem",
     },
@@ -50,5 +50,9 @@ export const typography: TypographyVariantsOptions = {
   subtitle1: {
     fontFamily: "Inter, sans-serif",
     fontSize: "1.6rem",
+  },
+  subtitle2: {
+    fontFamily: "Inter, sans-serif",
+    fontSize: "1.2rem",
   },
 };

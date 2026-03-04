@@ -1,7 +1,7 @@
 import {
   flexColumnAlignItemsCenter,
   flexRowCenter,
-} from "@/src/Theme/util/layout.flex";
+} from "@/src/Theme/core/layout.flex";
 
 export const mainContainerSx = {
   position: "relative",
@@ -11,6 +11,7 @@ export const mainContainerSx = {
   padding: "2rem 4rem 12rem 4rem",
   gap: "2rem",
   width: "100%",
+
 };
 
 export const paginationButtonBoxSx = {
@@ -39,4 +40,5 @@ export const tableSx = {
     md: "80rem",
     lg: "100rem",
   },
+  minWidth: "42rem",
 }

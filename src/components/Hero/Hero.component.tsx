@@ -1,14 +1,19 @@
 "use client";
 
+import {
+  heroTitleContainer,
+  searchContainer,
+} from "@/src/Theme/core/variables";
 import { TGames } from "@/src/Theme/type";
 import { Box, OutlinedInput, Typography } from "@mui/material";
 import { gsap } from "gsap";
-import { useEffect, useRef, useState } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { CardChampionchip } from "../CardChampionship/CardChampionship.component";
+import { SearchCarousel } from "../SearchCarousel/SearchCarousel.component";
 import {
   heroContainerSx,
-  // inputSx,
   searchContainerSx,
-  searchResultSx,
   titleContainerSx,
 } from "./hero.style";
 
@@ -18,21 +23,67 @@ interface IHero {
 
 export const Hero = ({ upcomingGamesList }: IHero) => {
   const heroRef = useRef<HTMLDivElement | null>(null);
-    const [changeInput, setChangeInput] = useState< string | null>(null);
-  
+  const [changeInput, setChangeInput] = useState<string | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
     if (!heroRef.current) return;
-
     gsap.to(heroRef.current, {
-      height: changeInput ? "calc(15vh + 10vh + 5vh)" : "calc(15vh + 10vh)",
+      height: changeInput
+        ? `calc(${heroTitleContainer.height} + ${searchContainer.height} + 16vh)`
+        : `calc(${heroTitleContainer.height} + ${searchContainer.height})`,
       minHeight: changeInput
-        ? "calc(25rem + 15rem + 20rem)"
-        : "calc(25rem + 15rem )",
+        ? `calc(${heroTitleContainer.minHeight} + ${searchContainer.minHeight} + 30rem)`
+        : `calc(${heroTitleContainer.minHeight} + ${searchContainer.minHeight})`,
       duration: 0.5,
       ease: "power3.out",
     });
   }, [changeInput]);
+
+  const searchResult = useMemo(() => {
+    const today = new Date();
+
+    const gameFiltered = upcomingGamesList.filter((game: TGames) => {
+      return new Date(game.date) >= today;
+    });
+
+    const sortByDateGames = [...gameFiltered].sort(
+      (a: TGames, b: TGames): number => {
+        const dateA = new Date(a.date).getTime();
+        const dateB = new Date(b.date).getTime();
+        return dateA - dateB;
+      },
+    );
+
+    if (!changeInput) return sortByDateGames;
+
+    return sortByDateGames.filter((game: TGames) => {
+      return (
+        game.team_1_name.toLowerCase().includes(changeInput.toLowerCase()) ||
+        game.team_2_name.toLowerCase().includes(changeInput.toLowerCase())
+      );
+    });
+  }, [changeInput, upcomingGamesList]);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const el = containerRef.current;
+
+    gsap.to(el, {
+      x: () => -(el.scrollWidth - el.clientWidth),
+      ease: "none",
+      scrollTrigger: {
+        trigger: el,
+        start: "top top",
+        end: () => `+=${el.scrollWidth}`,
+        scrub: true,
+        pin: true,
+      },
+    });
+  }, []);
 
   return (
     <Box ref={heroRef} sx={heroContainerSx}>
@@ -58,10 +109,14 @@ export const Hero = ({ upcomingGamesList }: IHero) => {
           value={changeInput}
           onChange={(e) => setChangeInput(e.target.value)}
         />
+        {changeInput && (
+          <SearchCarousel>
+            {searchResult.map((games: TGames, index) => {
+              return <CardChampionchip key={index} game={games} />;
+            })}
+          </SearchCarousel>
+        )}
       </Box>
-      {changeInput && <Box sx={searchResultSx}>d</Box>}
     </Box>
-
-
   );
 };
