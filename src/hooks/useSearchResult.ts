@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Games } from "../components/Types/type";
+import { Games } from "../Types/type";
 
 const useSearchResult = (games: Games[], search: string | null) => {
   const searchResult = useMemo(() => {

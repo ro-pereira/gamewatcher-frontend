@@ -1,12 +1,11 @@
-import { GameHour } from "@/src/commom/component/gameHour.component";
-import { TeamNameAndIcon } from "@/src/commom/component/TeamNameAndIcon.component";
-import { formatDate } from "@/src/commom/utils/utils.date";
+
+import { TeamNameAndIcon } from "@/src/components/TeamNameAndIcon.component";
+import { formatDate } from "@/src/utils/utils.date";
 import {
-  flexColumnAlignItemsCenter,
   flexColumnCenter,
   flexRowCenter,
 } from "@/src/Theme/core/layout.flex";
-import { TcardChampionchipProps } from "@/src/components/Types/type";
+import { CardChampionchipProps } from "@/src/Types/interface";
 import {
   Box,
   Card,
@@ -16,8 +15,9 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import { GameHour } from "../gameHour.component";
 
-export const CardChampionchip = ({ game }: TcardChampionchipProps) => {
+export const CardChampionchip = ({ game }: CardChampionchipProps) => {
   return (
     <Card
       sx={{

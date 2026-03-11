@@ -1,9 +1,8 @@
 "use client";
 
-import { GameHour } from "@/src/commom/component/gameHour.component";
-import { TeamNameAndIcon } from "@/src/commom/component/TeamNameAndIcon.component";
+import { TeamNameAndIcon } from "@/src/components/TeamNameAndIcon.component";
 import { flexColumnCenter, flexRowCenter } from "@/src/Theme/core/layout.flex";
-import { Games } from "@/src/components/Types/type";
+import { Games } from "@/src/Types/type";
 import {
   Box,
   Chip,
@@ -12,6 +11,7 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
+import { GameHour } from "../gameHour.component";
 
 interface ChampionshipsTableProps {
   game: Games;

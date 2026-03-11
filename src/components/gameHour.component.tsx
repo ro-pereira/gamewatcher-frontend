@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
-import { formatDate } from "../utils/utils.date";
-import { TGameHour } from "@/src/components/Types/type";
+import { formatDate } from "../../utils/utils.date";
+import { TGameHour } from "@/src/Types/type";
 
 export const GameHour = ({ gameDate, variantChange }: TGameHour) => {
   return (

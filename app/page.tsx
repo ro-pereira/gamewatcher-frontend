@@ -2,7 +2,7 @@
 
 import { Hero } from "@/src/components/Hero";
 import { Main } from "@/src/components/Main";
-import { Games } from "@/src/components/Types/type";
+import { Games } from "@/src/Types/type";
 import { useEffect, useMemo, useState } from "react";
 const url = "http://localhost:3001";
 const today = new Date();

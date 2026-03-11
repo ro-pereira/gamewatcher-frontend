@@ -27,7 +27,7 @@ export type Games = {
   channels: string[];
 };
 
-export type TFormattedDate = {
+export type FormattedDate = {
   weekday: string;
   date: string;
   time: string;
@@ -42,11 +42,6 @@ export type GamesByDay = {
   day: string;
   games: Games[];
 };
-
-export type TcardChampionchipProps = {
-  game: Games;
-};
-
 
 export type TTeamNameAndIcon = {
     teamName: string,

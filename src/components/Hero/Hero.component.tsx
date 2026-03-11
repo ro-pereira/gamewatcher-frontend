@@ -1,6 +1,6 @@
 "use client";
 
-import { Games } from "@/src/components/Types/type";
+import { Games } from "@/src/Types/type";
 import useHeroHeightAnimation from "@/src/hooks/useHeroHeightAnimation";
 import useHorizontalScroll from "@/src/hooks/useHorizontalScroll";
 import useSearchResult from "@/src/hooks/useSearchResult";
@@ -14,7 +14,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef, useState } from "react";
 import { CardChampionchip } from "../CardChampionship/CardChampionship.component";
 import { SearchCarousel } from "../SearchCarousel/SearchCarousel.component";
-import { HeroProps } from "../Types/interface";
+import { HeroProps } from "../../Types/interface";
 import {
   heroContainerSx,
   heroSubtitleSx,

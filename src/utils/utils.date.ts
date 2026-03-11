@@ -1,6 +1,6 @@
-import { TFormattedDate } from "@/src/components/Types/type";
+import { FormattedDate } from "@/src/Types/type";
 
-export const formatDate = (isoDate: string | Date): TFormattedDate => {
+export const formatDate = (isoDate: string | Date): FormattedDate => {
   const dateObj = new Date(isoDate);
 
   const weekday = new Intl.DateTimeFormat("pt-BR", {
