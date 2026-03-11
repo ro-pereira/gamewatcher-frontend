@@ -1,6 +1,6 @@
 "use client";
 
-import { GamesByDay, TMainProps } from "@/src/Theme/type";
+import { GamesByDay, TMainProps } from "@/src/components/Types/type";
 import { Box, Button, Typography } from "@mui/material";
 import { useMemo, useState } from "react";
 import { ChampionshipsTable } from "../ChampionshipsTable/ChampionshipsTable.component";

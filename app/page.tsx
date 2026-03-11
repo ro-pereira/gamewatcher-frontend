@@ -2,13 +2,13 @@
 
 import { Hero } from "@/src/components/Hero";
 import { Main } from "@/src/components/Main";
-import { TGames } from "@/src/Theme/type";
+import { Games } from "@/src/components/Types/type";
 import { useEffect, useMemo, useState } from "react";
 const url = "http://localhost:3001";
 const today = new Date();
 
 const Home = () => {
-  const [gamesResult, setGamesResult] = useState<TGames[]>([]);
+  const [gamesResult, setGamesResult] = useState<Games[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const Home = () => {
     const fetchDataGames = async () => {
       try {
         const result = await fetch(`${url}/allMatchs`);
-        const responseData: TGames[] = await result.json();
+        const responseData: Games[] = await result.json();
 
         setGamesResult(responseData);
       } catch (error) {

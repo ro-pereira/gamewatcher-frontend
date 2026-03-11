@@ -1,4 +1,4 @@
-import { TFormattedDate } from "@/src/Theme/type";
+import { TFormattedDate } from "@/src/components/Types/type";
 
 export const formatDate = (isoDate: string | Date): TFormattedDate => {
   const dateObj = new Date(isoDate);

@@ -1,8 +1,8 @@
 "use client";
 
-import { Box, OutlinedInput, Typography } from "@mui/material";
+import { Box, OutlinedInput } from "@mui/material";
 import { Dispatch, SetStateAction, useRef } from "react";
-import {  inputBoxSx } from "./header.style";
+import { inputBoxSx } from "./header.style";
 
 interface IHeader {
   setChangeInput: Dispatch<SetStateAction<string>>;

@@ -15,7 +15,7 @@ export type ThemeOptions = Omit<MuiThemeOptions, "components"> &
     colorSchemes?: Partial<Record<ThemeColorScheme, ColorSchemeOptionsExtended>>;
   };
 
-export type TGames = {
+export type Games = {
   date: Date;
   championship: string;
   team_1_name: string;
@@ -34,17 +34,17 @@ export type TFormattedDate = {
 };
 
 export type TMainProps = {
-  upcomingGamesList: TGames[];
+  upcomingGamesList: Games[];
   isLoading: boolean;
 };
 
 export type GamesByDay = {
   day: string;
-  games: TGames[];
+  games: Games[];
 };
 
 export type TcardChampionchipProps = {
-  game: TGames;
+  game: Games;
 };
 
 

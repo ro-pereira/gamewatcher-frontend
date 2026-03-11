@@ -2,7 +2,7 @@ import { createTheme, type Theme } from "@mui/material/styles";
 import { palette } from "./core/palette";
 import { styleComponentGlobal } from "./core/style.global";
 import { typography } from "./core/typography";
-import { ThemeOptions } from "./type";
+import { ThemeOptions } from "../components/Types/type";
 
 export const baseTheme: ThemeOptions = {
   colorSchemes: {

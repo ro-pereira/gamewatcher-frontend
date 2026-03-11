@@ -6,7 +6,7 @@ import {
   flexColumnCenter,
   flexRowCenter,
 } from "@/src/Theme/core/layout.flex";
-import { TcardChampionchipProps } from "@/src/Theme/type";
+import { TcardChampionchipProps } from "@/src/components/Types/type";
 import {
   Box,
   Card,

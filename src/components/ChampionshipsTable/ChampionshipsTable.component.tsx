@@ -3,7 +3,7 @@
 import { GameHour } from "@/src/commom/component/gameHour.component";
 import { TeamNameAndIcon } from "@/src/commom/component/TeamNameAndIcon.component";
 import { flexColumnCenter, flexRowCenter } from "@/src/Theme/core/layout.flex";
-import { TGames } from "@/src/Theme/type";
+import { Games } from "@/src/components/Types/type";
 import {
   Box,
   Chip,
@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 
 interface ChampionshipsTableProps {
-  game: TGames;
+  game: Games;
 }
 
 export const ChampionshipsTable = ({ game }: ChampionshipsTableProps) => {

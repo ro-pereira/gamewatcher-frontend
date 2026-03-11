@@ -1,5 +1,5 @@
 import { flexColumnCenter } from "@/src/Theme/core/layout.flex";
-import { TTeamNameAndIcon } from "@/src/Theme/type";
+import { TTeamNameAndIcon } from "@/src/components/Types/type";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 
