@@ -12,8 +12,7 @@ import { Box, OutlinedInput, Typography } from "@mui/material";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef, useState } from "react";
-import { CardChampionchip } from "../CardChampionship/CardChampionship.component";
-import { SearchCarousel } from "../SearchCarousel/SearchCarousel.component";
+
 import { HeroProps } from "../../Types/interface";
 import {
   heroContainerSx,
@@ -23,10 +22,12 @@ import {
   searchContainerSx,
   titleContainerSx,
 } from "./hero.style";
+import { SearchCarousel } from "@/src/components/SearchCarousel/SearchCarousel.component";
+import { GameCard } from "@/src/components/GameCard/GameCard.component";
 
 export const Hero = ({ upcomingGamesList }: HeroProps) => {
   const heroRef = useRef<HTMLDivElement | null>(null);
-  const [changeInput, setChangeInput] = useState<string | null>(null);
+  const [changeInput, setChangeInput] = useState<string | undefined>(undefined);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   gsap.registerPlugin(ScrollTrigger);
@@ -64,7 +65,7 @@ export const Hero = ({ upcomingGamesList }: HeroProps) => {
         {changeInput && (
           <SearchCarousel>
             {searchResult.map((games: Games, index) => {
-              return <CardChampionchip key={index} game={games} />;
+              return <GameCard key={index} game={games} />;
             })}
           </SearchCarousel>
         )}

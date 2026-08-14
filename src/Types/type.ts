@@ -5,6 +5,7 @@ import type {
   ThemeOptions as MuiThemeOptions,
 } from "@mui/material/styles";
 import { TypographyProps } from "@mui/material/Typography";
+import { Dispatch, SetStateAction } from "react";
 
 export type ThemeColorScheme = SupportedColorScheme;
 
@@ -12,7 +13,9 @@ type ColorSchemeOptionsExtended = ColorSystemOptions;
 
 export type ThemeOptions = Omit<MuiThemeOptions, "components"> &
   Pick<CssVarsThemeOptions, "defaultColorScheme" | "components"> & {
-    colorSchemes?: Partial<Record<ThemeColorScheme, ColorSchemeOptionsExtended>>;
+    colorSchemes?: Partial<
+      Record<ThemeColorScheme, ColorSchemeOptionsExtended>
+    >;
   };
 
 export type Games = {
@@ -44,11 +47,27 @@ export type GamesByDay = {
 };
 
 export type TTeamNameAndIcon = {
-    teamName: string,
-    teamImg: string
-}
+  teamName: string;
+  teamImg: string;
+};
 
 export type TGameHour = {
-  gameDate: Date | string,
-   variantChange?: TypographyProps["variant"];
+  gameDate: Date | string;
+  variantChange?: TypographyProps["variant"];
 };
+
+export type TWeekDayButtons = {
+  gamesInThisWeek: GamesByDay[];
+  noGamesThisWeek: boolean;
+  selectedDay: string;
+  setSelectedDay: Dispatch<SetStateAction<string>>;
+};
+
+export type TGameTableProps = {
+  noGamesThisWeek: boolean;
+  selectedDayGames: GamesByDay | undefined;
+};
+
+
+
+

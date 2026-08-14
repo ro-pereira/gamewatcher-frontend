@@ -4,6 +4,6 @@ export interface HeroProps {
   upcomingGamesList: Games[];
 }
 
-export interface CardChampionchipProps {
+export interface GameCardProps {
   game: Games;
 }

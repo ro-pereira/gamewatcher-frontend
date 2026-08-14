@@ -28,10 +28,13 @@ export const typography: TypographyVariantsOptions = {
     "@media (max-width:1200px)": {
       fontSize: "2rem",
     },
+    // "@media (max-width:600px)": {
+    //   fontSize: "2rem",
+    // },
   },
   h3: {
     fontFamily: "Monomaniac One, sans-serif",
-    fontSize: "1.2rem",
+    fontSize: "1.4rem",
   },
   body1: {
     fontFamily: "Inter, sans-serif",
@@ -46,6 +49,10 @@ export const typography: TypographyVariantsOptions = {
     fontFamily: "Inter, sans-serif",
     fontSize: "1.2rem",
     fontWeight: "400",
+
+    "@media (max-width:600px)": {
+      fontSize: "1.4rem",
+    },
   },
   subtitle1: {
     fontFamily: "Inter, sans-serif",

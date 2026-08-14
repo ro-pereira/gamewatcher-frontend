@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-en" className={`${inter.className} ${monomaniac.className}`}>
+    <html lang="pt-BR" className={`${inter.className} ${monomaniac.className}`}>
       <body>
         <ThemeProvider>
           {children}

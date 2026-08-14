@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { Games } from "../Types/type";
 
-const useSearchResult = (games: Games[], search: string | null) => {
+const useSearchResult = (games: Games[], search: string | undefined) => {
   const searchResult = useMemo(() => {
     const today = new Date();
 

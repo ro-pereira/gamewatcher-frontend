@@ -17,3 +17,9 @@ export const flexColumnAlignItemsCenter = {
   flexDirection: "column",
   alignItems: "center",
 };
+
+export const flexRowJustifyContentCenter = {
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "center",
+};

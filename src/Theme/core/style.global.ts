@@ -1,4 +1,5 @@
 import { Components, Theme } from "@mui/material/styles";
+import { flexRowJustifyContentCenter } from "./layout.flex";
 
 export const styleComponentGlobal: Components<Theme> = {
   MuiCssBaseline: {
@@ -16,9 +17,10 @@ export const styleComponentGlobal: Components<Theme> = {
         overscrollBehavior: "none",
       },
 
-      "@media (max-width:500px)": {
+      "@media (max-width: 300px)": {
         body: {
           overflowX: "auto",
+          // overscrollBehavior: "auto"
         },
       },
     },
@@ -51,7 +53,7 @@ export const styleComponentGlobal: Components<Theme> = {
         height: "100vh",
         minHeight: "500px",
         maxHeight: "1200px",
-        width: "100vw",
+        width: "100%",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -59,3 +61,8 @@ export const styleComponentGlobal: Components<Theme> = {
     },
   },
 };
+
+
+// export const pageIndexStyle = {
+//   minWidth: "30rem",
+// };
