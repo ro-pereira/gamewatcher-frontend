@@ -4,7 +4,7 @@ import { Hero } from "@/src/Layout/Hero";
 import { Main } from "@/src/Layout/Main";
 import { Games } from "@/src/Types/type";
 import { useEffect, useMemo, useState } from "react";
-const url = "https://gamewatcher-backend.onrender.com";
+const url = process.env.NEXT_PUBLIC_API_URL;
 const today = new Date();
 
 const Home = () => {
