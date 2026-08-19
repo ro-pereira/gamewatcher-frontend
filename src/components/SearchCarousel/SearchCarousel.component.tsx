@@ -1,6 +1,6 @@
 import { Box, IconButton } from "@mui/material";
 // import { outerContainerSx, searchResulCardSx } from "../Hero/hero.style";
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useLayoutEffect, useRef, useState } from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { gsap } from "gsap";
@@ -14,6 +14,7 @@ export const SearchCarousel = ({ children }: TSearchCarouselProps) => {
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const [isAtStart, setIsAtStart] = useState(true);
   const [isAtEnd, setIsAtEnd] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   const checkScrollPosition = () => {
     if (!scrollRef.current) return;
@@ -43,6 +44,29 @@ export const SearchCarousel = ({ children }: TSearchCarouselProps) => {
     });
   };
 
+  useLayoutEffect(() => {
+    if (!containerRef.current) return;
+
+    const cards = containerRef.current.children;
+
+gsap.fromTo(
+  cards,
+  {
+    opacity: 0,
+    y: 40,
+    scale: 0.92,
+  },
+  {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    duration: 0.7,
+    stagger: 0.1,
+    ease: "power3.out",
+  },
+);
+  }, [children]);
+
   useEffect(() => {
     checkScrollPosition();
   }, []);
@@ -63,7 +87,7 @@ export const SearchCarousel = ({ children }: TSearchCarouselProps) => {
           height: 40,
           pointerEvents: "auto",
 
-         bgcolor: "#000000f2",
+          bgcolor: "#000000f2",
         }}
       >
         <ArrowBackIosNewIcon />
@@ -88,7 +112,7 @@ export const SearchCarousel = ({ children }: TSearchCarouselProps) => {
           width: 40,
           height: 40,
           borderRadius: "50%",
-          bgcolor: "#000000f2",
+          bgcolor: "rgba(0, 0, 0, 0.95)",
           pointerEvents: "auto",
         }}
       >

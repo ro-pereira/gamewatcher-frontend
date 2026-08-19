@@ -1,8 +1,8 @@
 
 export const outerContainerSx = {
   width: "100%",
-  height: "16vh",
-  minHeight: "30rem",
+  height: "18vh",
+  minHeight: "34rem",
   borderRadius: "1rem",
   backgroundColor: "rgba(255, 255, 255, 0.14)", 
   position: "relative",

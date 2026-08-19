@@ -15,6 +15,7 @@ import { useRef, useState } from "react";
 
 import { HeroProps } from "../../Types/interface";
 import {
+  boxInfoNotfoundSx,
   heroContainerSx,
   heroSubtitleSx,
   heroTitleSx,
@@ -27,20 +28,23 @@ import { GameCard } from "@/src/components/GameCard/GameCard.component";
 
 export const Hero = ({ upcomingGamesList }: HeroProps) => {
   const heroRef = useRef<HTMLDivElement | null>(null);
-  const [changeInput, setChangeInput] = useState<string | undefined>(undefined);
+  const [changeInput, setChangeInput] = useState<string>("");
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const searchContainerRef = useRef<HTMLDivElement | null>(null);
+  const searchResult = useSearchResult(upcomingGamesList, changeInput);
+  const hasInput = changeInput.length > 0;
+  const hasSearch = hasInput && searchResult.length > 0;
+  const showNoResults = hasInput && searchResult.length === 0;
 
   gsap.registerPlugin(ScrollTrigger);
 
   useHeroHeightAnimation(
     heroRef,
-    !!changeInput,
+    hasSearch,
+    showNoResults,
     heroTitleContainer,
     searchContainer,
   );
-
-  const searchResult = useSearchResult(upcomingGamesList, changeInput);
-
   useHorizontalScroll(containerRef);
 
   return (
@@ -55,19 +59,32 @@ export const Hero = ({ upcomingGamesList }: HeroProps) => {
         </Typography>
       </Box>
 
-      <Box sx={searchContainerSx}>
+      <Box ref={searchContainerRef} sx={searchContainerSx}>
         <OutlinedInput
           sx={outlineInputSx}
           placeholder="Digite o nome do time de futebol..."
           value={changeInput}
           onChange={(e) => setChangeInput(e.target.value)}
         />
-        {changeInput && (
+        
+        {changeInput && searchResult.length > 0 && (
           <SearchCarousel>
             {searchResult.map((games: Games, index) => {
               return <GameCard key={index} game={games} />;
             })}
           </SearchCarousel>
+        )}
+
+        {showNoResults && (
+          <Box sx={boxInfoNotfoundSx}>
+            <Typography
+              variant="body1"
+              color="text.secondary"
+              textAlign="center"
+            >
+              Nenhum jogo encontrado para &quot;{changeInput}&quot;.
+            </Typography>
+          </Box>
         )}
       </Box>
     </Box>

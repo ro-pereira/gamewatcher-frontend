@@ -60,6 +60,6 @@ export const typography: TypographyVariantsOptions = {
   },
   subtitle2: {
     fontFamily: "Inter, sans-serif",
-    fontSize: "1.2rem",
+    fontSize: "1.4rem",
   },
 };

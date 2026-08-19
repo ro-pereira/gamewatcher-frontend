@@ -79,7 +79,7 @@ export const tableRowSx = {
 
   borderBottom: {
     xs: "none",
-    sm: "1px solid",
+    sm: "1px solid #fbfbfb3e",
   },
 
   borderRadius: {

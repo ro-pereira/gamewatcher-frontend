@@ -1,13 +1,11 @@
 "use client";
 
-import {
-  heroTitleContainer,
-  searchContainer,
-} from "@/src/Theme/core/variables";
 import { flexColumnAlignItemsCenter } from "@/src/Theme/core/layout.flex";
-import { SxProps, Theme } from "@mui/material";
+import {
+  heroTitleContainer
+} from "@/src/Theme/core/variables";
 
-export const heroContainerSx: SxProps<Theme> = {
+export const heroContainerSx = {
   position: "relative",
 
   width: "100%",
@@ -44,7 +42,7 @@ export const heroContainerSx: SxProps<Theme> = {
   },
 };
 
-export const titleContainerSx: SxProps<Theme> = {
+export const titleContainerSx = {
   zIndex: 99,
   width: {
     xs: "100%",
@@ -60,13 +58,13 @@ export const titleContainerSx: SxProps<Theme> = {
   gap: 2,
 };
 
-export const heroTitleSx: SxProps<Theme> = {
+export const heroTitleSx = {
   color: "secondary.contrastText",
   fontWeight: 800,
   textAlign: "center",
 };
 
-export const heroSubtitleSx: SxProps<Theme> = {
+export const heroSubtitleSx = {
   color: "primary.contrastText",
   ...flexColumnAlignItemsCenter,
   textAlign: "center",
@@ -80,24 +78,38 @@ export const heroSubtitleSx: SxProps<Theme> = {
   maxWidth: "30rem",
 };
 
-export const searchContainerSx: SxProps<Theme> = {
+export const searchContainerSx = {
   width: {
     xs: "calc(100% - 4rem)",
     sm: "55rem",
     md: "80rem",
-    lg: "100rem",
+    lg: "97rem",
   },
+
+  display: "flex",
+  flexDirection: "column",
+  gap: 2,
 
   minWidth: 0,
 
   pointerEvents: "auto",
   zIndex: 99,
-  height: searchContainer.height,
-  minHeight: searchContainer.minHeight,
 };
 
-export const outlineInputSx: SxProps<Theme> = {
+export const outlineInputSx = {
   width: "100%",
   pointerEvents: "auto",
   zIndex: 999,
+};
+
+export const boxInfoNotfoundSx = {
+  width: "100%",
+  height: "12rem",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  border: "1px solid",
+  borderColor: "divider",
+  borderRadius: "1.6rem",
+  backgroundColor: "background.paper",
 };

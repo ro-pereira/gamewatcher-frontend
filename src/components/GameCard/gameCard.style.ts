@@ -1,3 +1,4 @@
+"use Client";
 import { flexColumnCenter, flexRowCenter } from "@/src/Theme/core/layout.flex";
 import { SxProps, Theme } from "@mui/material";
 
@@ -14,6 +15,7 @@ export const cardContentSx: SxProps<Theme> = {
   width: "80%",
   display: "flex",
   flexDirection: "column",
+  gap: 1,
 };
 
 export const cardTitle: SxProps<Theme> = {
@@ -24,22 +26,20 @@ export const cardTitle: SxProps<Theme> = {
 };
 
 export const cardTeamName: SxProps<Theme> = {
-  height: "40%",
-  borderBottom: `1px solid primary.main`,
+  padding: "0 0 1rem",
   ...flexRowCenter,
 };
 
 export const cardChannels: SxProps<Theme> = {
-  direction: "row",
+  flexDirection: "row",
   flexWrap: "wrap",
   gap: 1,
   alignItems: "center",
   overflowX: "auto",
   overflowY: "hidden",
-  // flexWrap: "nowrap",
   scrollSnapType: "x mandatory",
   scrollBehavior: "smooth",
-  padding: 2,
+  padding: 1,
 };
 
 export const cardGameHour: SxProps<Theme> = {
@@ -49,8 +49,8 @@ export const cardGameHour: SxProps<Theme> = {
   height: "20%",
 };
 
-export const cardChipsStack: SxProps<Theme> = {
-  color: "primary.constext",
+export const cardChipsStack: SxProps<Theme> = (theme) => ({
+  ...theme.typography.body2,
+  color: theme.palette.primary.contrastText,
   padding: "4px",
-  fontSize: "typography.body2",
-};
+});

@@ -1,14 +1,13 @@
 import { flexColumnCenter } from "@/src/Theme/core/layout.flex";
 import { TTeamNameAndIcon } from "@/src/Types/type";
 import { Box, Typography } from "@mui/material";
-// import Image from "next/image";
 
 export const TeamNameAndIcon = ({ teamName, teamImg }: TTeamNameAndIcon) => {
   return (
     <Box
       sx={{
         ...flexColumnCenter,
-        gap: 1
+        gap: 0.5,
       }}
     >
       <Box
@@ -16,14 +15,8 @@ export const TeamNameAndIcon = ({ teamName, teamImg }: TTeamNameAndIcon) => {
         src={teamImg}
         alt={`emblema do ${teamName}`}
         sx={{
-          width: {
-            xs: "10rem",
-            sm: "8rem",
-          },
-          height: {
-            xs: "10rem",
-            sm: "8rem",
-          },
+          width: "7rem",
+          height: "7rem",
           objectFit: "contain",
         }}
       />

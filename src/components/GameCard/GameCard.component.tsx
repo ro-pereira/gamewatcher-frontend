@@ -1,5 +1,8 @@
 import { TeamNameAndIcon } from "@/src/components/TeamNameAndIcon.component";
-import { flexRowCenter } from "@/src/Theme/core/layout.flex";
+import {
+  flexColumnAlignItemsCenter,
+  flexRowCenter,
+} from "@/src/Theme/core/layout.flex";
 import { GameCardProps } from "@/src/Types/interface";
 import { formatDate } from "@/src/utils/utils.date";
 import {
@@ -17,7 +20,6 @@ import {
   cardChannels,
   cardChipsStack,
   cardContentSx,
-  cardGameHour,
   cardSx,
   cardTeamName,
   cardTitle,
@@ -39,19 +41,28 @@ export const GameCard = ({ game }: GameCardProps) => {
               teamName={game.team_1_name}
               teamImg={game.team_1_img}
             />
-            <Typography variant="h2" sx={{ ...flexRowCenter, width: "10%" }}>
-              x
-            </Typography>
+            <Typography variant="h2">x</Typography>
             <TeamNameAndIcon
               teamName={game.team_2_name}
               teamImg={game.team_2_img}
             />
           </Box>
 
+          <Box
+            sx={{
+              ...flexColumnAlignItemsCenter,
+              borderBottom: `1px solid #fbfbfb3e`,
+              borderTop: "1px solid #fbfbfb3e",
+              padding: 1,
+            }}
+          >
             {formatDate(game.date).weekday}, {formatDate(game.date).date}
-            <GameHour gameDate={game.date} variantChange="h3" />
+            <Box sx={{ ...flexRowCenter }}>
+              <GameHour gameDate={game.date} variantChange="h3" />
+            </Box>
+          </Box>
 
-          <Box sx={{ ...flexRowCenter, height: "25%" }}>
+          <Box sx={{ ...flexRowCenter }}>
             <Stack sx={cardChannels}>
               {game.channels.map((channel: string) => {
                 return (
