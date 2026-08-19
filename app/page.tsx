@@ -1,10 +1,12 @@
 "use client";
 
+import Footer from "@/src/Layout/Footer/Footer.component";
+import Header from "@/src/Layout/Header/Header.component";
 import { Hero } from "@/src/Layout/Hero";
 import { Main } from "@/src/Layout/Main";
 import { Games } from "@/src/Types/type";
 import { useEffect, useMemo, useState } from "react";
-const url = process.env.NEXT_PUBLIC_API_URL;
+const url = "https://gamewatcher-backend.onrender.com";
 const today = new Date();
 
 const Home = () => {
@@ -57,8 +59,10 @@ const Home = () => {
   return (
     <div id="smooth-wrapper">
       <div id="smooth-content">
+        <Header />
         <Hero upcomingGamesList={upcomingGamesList} />
         <Main upcomingGamesList={upcomingGamesList} isLoading={isLoading} />
+        <Footer />
       </div>
     </div>
   );
