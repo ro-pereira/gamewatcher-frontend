@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GameWatcher — Frontend
 
-## Getting Started
+Plataforma de consulta de transmissões de jogos de futebol. O GameWatcher permite consultar partidas de futebol e descobrir onde assisti-las, integrando front-end, API, banco de dados e automação de coleta de dados em uma aplicação full-stack.
 
-First, run the development server:
+Este repositório contém o **front-end** da aplicação. A API que o alimenta está no repositório [`gamewatcher-backend`](https://github.com/ro-pereira/gamewatcher-backend).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Sobre o projeto
+
+O GameWatcher foi desenvolvido para facilitar a consulta de partidas de futebol e suas respectivas opções de transmissão, reunindo em um só lugar informações que normalmente estão espalhadas em diferentes fontes.
+
+Principais funcionalidades e aspectos técnicos do projeto como um todo:
+
+- Interface desenvolvida em React.js e TypeScript
+- API REST construída com Node.js e Express
+- Persistência e consulta de dados com PostgreSQL
+- Web scraping com Selenium para coleta automatizada de informações sobre jogos e transmissões
+- Integração entre front-end e API para consumo e apresentação dos dados
+- Configuração de CORS para comunicação entre as aplicações
+- Interface responsiva e focada na experiência do usuário
+
+## Stack (front-end)
+
+- [Next.js](https://nextjs.org) 16 (App Router)
+- [React](https://react.dev) 19 + TypeScript
+- [MUI (Material UI)](https://mui.com) + Emotion
+- [GSAP](https://gsap.com) para animações
+- ESLint
+
+## Pré-requisitos
+
+- Node.js 18+
+- A API [`gamewatcher-backend`](https://github.com/ro-pereira/gamewatcher-backend) rodando localmente ou acessível remotamente
+
+## Como rodar localmente
+
+1. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/ro-pereira/gamewatcher-frontend.git
+   cd gamewatcher-frontend
+   ```
+
+2. Instale as dependências:
+
+   ```bash
+   npm install
+   ```
+
+3. Configure as variáveis de ambiente (crie um arquivo `.env.local` na raiz do projeto):
+
+   ```bash
+   NEXT_PUBLIC_API_URL=http://localhost:PORTA_DA_API
+   ```
+
+4. Rode o servidor de desenvolvimento:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Abra [http://localhost:3000](http://localhost:3000) no navegador para ver o resultado.
+
+## Scripts disponíveis
+
+| Script | Descrição |
+| --- | --- |
+| `npm run dev` | Inicia o servidor de desenvolvimento |
+| `npm run build` | Gera o build de produção |
+| `npm run start` | Inicia o servidor com o build de produção |
+| `npm run prod` | Executa build + start em sequência |
+| `npm run lint` | Roda o ESLint |
+
+## Estrutura do projeto
+
+```
+├── app/          # Rotas e páginas (Next.js App Router)
+├── src/          # Componentes, lógica e demais códigos-fonte
+├── public/       # Arquivos estáticos
+└── .vscode/      # Configurações do editor
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Repositórios relacionados
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [`gamewatcher-backend`](https://github.com/ro-pereira/gamewatcher-backend) — API REST, banco de dados e web scraping
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Objetivo do projeto
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Desenvolver uma aplicação full-stack completa, integrando desenvolvimento front-end, criação de APIs, persistência de dados e automação de coleta de informações.
